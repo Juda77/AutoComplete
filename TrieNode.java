@@ -4,10 +4,7 @@ public class TrieNode {
 	TrieNode[] children = new TrieNode[27];
 	boolean atEndOfAPhrase = false;
 
-	
-	public TrieNode() {
-		
-	}
+	public TrieNode() {}
 	
 	public void insert(String phrase, int currIndex) {
 		
@@ -33,12 +30,9 @@ public class TrieNode {
 		}
 
 	}
-	
-	
-	
+
 	//traverse until we get to the input phrase's end
 	public void traverse(String phrase, int index) {
-		
 		
 		//we've reached the end of the word, begin autocomplete generation
 		if (index == phrase.length()) {
@@ -48,7 +42,6 @@ public class TrieNode {
 				
 			return;
 		}
-		
 		
 		char currLetter = Character.toLowerCase(phrase.charAt(index));
 		
@@ -60,11 +53,7 @@ public class TrieNode {
 			children[currLetter - 'a'].traverse(phrase, index + 1);
 			
 		}
-		
-		
-		
-		
-		
+	
 	}
 	
 	public void findPhrasesToAutoGenerate(StringBuilder currPhrase, TrieNode curr) {
@@ -86,25 +75,8 @@ public class TrieNode {
 				findPhrasesToAutoGenerate(currPhrase, curr.children[i]);
 				currPhrase.setLength(currPhrase.length() - 1);
 					
-			}
-				
-				
+			}		
 		}
-		
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
